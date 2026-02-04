@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build-Test-Package') {
       agent {
-        docker { image 'maven:3.8.1-adoptopenjdk-11' }
+        docker { image 'maven:3.9.6-eclipse-temurin-17' }
       }
               steps {
                 git branch: 'main', url: 'https://github.com/Hydra2206/jenkins-by-me.git'
