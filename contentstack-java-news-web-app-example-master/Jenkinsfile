@@ -8,7 +8,7 @@ pipeline {
               steps {
                 git branch: 'main', url: 'https://github.com/Hydra2206/jenkins-by-me.git'
                 
-                dir('contentstack-java-news-web-app-example-master') {    # Change to project directory
+                dir('contentstack-java-news-web-app-example-master') {
                     sh '''
                       mvn -v
                       mvn clean compile
