@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Checkout') {
             steps {
-                sh 'git clone https://github.com/Hydra2206/jenkins-by-me.git'
+                git 'https://github.com/Hydra2206/jenkins-by-me.git'
             }
     }
     stage('Build') {
