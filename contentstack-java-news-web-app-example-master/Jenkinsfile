@@ -20,13 +20,16 @@ pipeline {
                 }
     }
     }
-    stage('Deploy') {
-            steps {
-                sh '''
-                   echo "Deploying application..."
-                '''
-            }
+    stage('Docker Build') {
+    agent any
+    steps {
+        dir('contentstack-java-news-web-app-example-master') {
+            sh '''
+              docker build -t news-webapp:latest .
+            '''
         }
+    }
+}
     }
   post {
     success {
