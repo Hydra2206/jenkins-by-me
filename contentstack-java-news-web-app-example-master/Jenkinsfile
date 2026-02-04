@@ -7,13 +7,15 @@ pipeline {
       }
               steps {
                 git branch: 'main', url: 'https://github.com/Hydra2206/jenkins-by-me.git'
-                sh '''
-                  mvn -v
-                  mvn clean compile
-                  mvn test
-                  mvn package -DskipTests
-                '''
-              }
+                
+                dir('contentstack-java-news-web-app-example-master') {    # Change to project directory
+                    sh '''
+                      mvn -v
+                      mvn clean compile
+                      mvn test
+                      mvn package -DskipTests
+                    '''
+                }
     }
     stage('Deploy') {
             steps {
@@ -25,6 +27,7 @@ pipeline {
             }
         }
     }
+  }
   post {
     success {
         echo 'Pipeline completed successfully!'
@@ -33,4 +36,5 @@ pipeline {
         echo 'Pipeline failed!'
     }
   }
+
 }
