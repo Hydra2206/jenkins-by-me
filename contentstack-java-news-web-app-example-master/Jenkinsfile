@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh '''
                    echo "Deploying application..."
-                   cp /var/lib/jenkins/workspace/java-maven-first-pipeline@2/contentstack-java-news-web-app-example-master/target/*.jar /opt/apps/myapp.jar
+                   archiveArtifacts artifacts: '/var/lib/jenkins/workspace/java-maven-first-pipeline@2/contentstack-java-news-web-app-example-master/target/*.jar'
                    systemctl restart myapp
                 '''
             }
