@@ -20,9 +20,11 @@ pipeline {
     }
     stage('Deploy') {
             steps {
+
+                archiveArtifacts artifacts: '/var/lib/jenkins/workspace/java-maven-first-pipeline@2/contentstack-java-news-web-app-example-master/target/*.jar'
                 sh '''
                    echo "Deploying application..."
-                   archiveArtifacts artifacts: '/var/lib/jenkins/workspace/java-maven-first-pipeline@2/contentstack-java-news-web-app-example-master/target/*.jar'
+                   
                    systemctl restart myapp
                 '''
             }
