@@ -1,16 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('Back-end') {
+    stage('Build-Test-Package') {
       agent {
         docker { image 'maven:3.8.1-adoptopenjdk-11' }
       }
-      steps {
-        sh 'mvn --version'
-      }
-    }
-    stage('Checkout') {
-            steps {
+              steps {
                 git branch: 'main', url: 'https://github.com/Hydra2206/jenkins-by-me.git'
                 sh '''
                   mvn -v
@@ -19,7 +14,7 @@ pipeline {
                   mvn package -DskipTests
                 '''
               }
-
+    }
     stage('Deploy') {
             steps {
                 sh '''
