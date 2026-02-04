@@ -24,8 +24,6 @@ pipeline {
             steps {
                 sh '''
                    echo "Deploying application..."
-                   
-                   systemctl restart myapp
                 '''
             }
         }
