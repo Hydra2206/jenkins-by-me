@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Checkout') {
             steps {
-                git 'https://github.com/Hydra2206/jenkins-by-me.git'
+                git branch: 'main', url: 'https://github.com/Hydra2206/jenkins-by-me.git'
             }
     }
     stage('Build') {
