@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Checkout') {
             steps {
-                git clone 'https://github.com/Hydra2206/jenkins-by-me.git'
+                sh 'git clone https://github.com/Hydra2206/jenkins-by-me.git'
                 sh 'cd contentstack-java-news-web-app-example-master'
             }
     }
