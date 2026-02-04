@@ -16,7 +16,7 @@ pipeline {
                       mvn package -DskipTests
                     '''
 
-                    archiveArtifacts artifacts: '/var/lib/jenkins/workspace/java-maven-first-pipeline@2/contentstack-java-news-web-app-example-master/target/*.jar'
+                    archiveArtifacts artifacts: 'target/*.jar'
                 }
     }
     }
